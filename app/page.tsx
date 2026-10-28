@@ -5,6 +5,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MinimalistHero } from "@/components/minimalist-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { ProjectCard } from "@/components/project-card";
+import { ExperienceTimeline } from "@/components/experience-timeline";
 
 const projects = [
   {
@@ -14,15 +15,16 @@ const projects = [
     href: "#",
     badge: "2026",
     tags: ["C#", ".NET", "SQL", "Background Services"],
+    image: "/projects/uptime-tracker.webp",
   },
   {
     title: "Hospital Appointment System",
     description:
-      "REST API with Spring Boot and MySQL supporting four user roles, secured with JWT and role-based access control across 15+ endpoints. Fully containerised with Docker.",
+      "REST API with Spring Boot and MySQL supporting four user roles, secured with JWT and role-based access across 15+ endpoints. Fully containerised with Docker.",
     href: "https://github.com/Hateem955",
     badge: "2025",
     tags: ["Java", "Spring Boot", "MySQL", "JWT", "Docker"],
-  },
+    image: "/projects/hospital-system.webp",},
   {
     title: "Charity Donation Platform",
     description:
@@ -30,9 +32,46 @@ const projects = [
     href: "#",
     badge: "2025",
     tags: ["Figma", "UX Research", "Prototyping"],
+    image: "/projects/charity-platform.webp",
   },
 ];
-
+const experience = [
+  {
+    date: "Apr 2026 — Now",
+    title: "Software Engineer (Part-time)",
+    org: "Titan Webtech · Chester",
+    points: [
+      "Joined as a 5-week intern and was kept on as a permanent part-time engineer after delivering internal service tools.",
+      "Built an Uptime Tracker in C# and .NET that pings every client website every 30 seconds, flagging latency spikes and downtime.",
+      "Work directly with clients to turn business requirements into working software through iterative check-ins.",
+    ],
+  },
+  {
+    date: "Nov 2025",
+    title: "Hackathon Participant",
+    org: "Accelerate Me · Manchester",
+    points: [
+      "Designed and built a working prototype with a team under an 8-hour deadline.",
+    ],
+  },
+  {
+    date: "2024 — 2027",
+    title: "BSc Computer Science",
+    org: "University of Chester",
+    points: [
+      "Predicted First Class Honours.",
+      "Vice Team Leader on a 4-person UX project, designing a charity donation platform prototype in Figma.",
+    ],
+  },
+  {
+    date: "2023",
+    title: "Web Development Certification",
+    org: "Aptech",
+    points: [
+      "Foundations in web development, which led to studying Computer Science.",
+    ],
+  },
+];
 export default function Home() {
   const navLinks = [
     { label: "WORK", href: "#projects" },
@@ -68,6 +107,11 @@ export default function Home() {
             <ProjectCard key={project.title} {...project} />
           ))}
         </div>
+      </section>
+
+      <section id="experience" className="mx-auto w-full max-w-7xl px-8 py-24 md:px-12">
+        <SectionHeading text="Experience" />
+        <ExperienceTimeline items={experience} />
       </section>
     </main>
   );
