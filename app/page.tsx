@@ -72,6 +72,13 @@ const experience = [
     ],
   },
 ];
+
+const skills = [
+  { group: "Languages", items: ["Java", "C#", "SQL"] },
+  { group: "Backend", items: ["Spring Boot", ".NET", "REST APIs", "JWT", "Microservices", "Kafka"] },
+  { group: "Tools", items: ["Docker", "Git", "Postman", "Umbraco CMS", "Figma"] },
+  { group: "Ways of working", items: ["Agile / Scrum", "Client collaboration", "Cross-functional teams"] },
+];
 export default function Home() {
   const navLinks = [
     { label: "WORK", href: "#projects" },
@@ -112,6 +119,92 @@ export default function Home() {
       <section id="experience" className="mx-auto w-full max-w-7xl px-8 py-24 md:px-12">
         <SectionHeading text="Experience" />
         <ExperienceTimeline items={experience} />
+      </section>
+
+            <section id="about" className="mx-auto w-full max-w-7xl px-8 py-24 md:px-12">
+        <SectionHeading text="About" />
+        <div className="grid gap-16 lg:grid-cols-2">
+          <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
+            <p>
+              I'm a final-year Computer Science student at the University of Chester, predicted a
+              First, and a part-time software engineer at Titan Webtech.
+            </p>
+            <p>
+              I enjoy the parts of software most people never see: the APIs, background services and
+              databases that keep everything running. At Titan Webtech I started as a 5-week intern
+              and was kept on after building an uptime monitoring tool that tracks every active
+              client website.
+            </p>
+            <p>
+              I graduate in 2027 and I'm looking for a backend or software engineering role where I
+              can keep building reliable systems with Java, Spring Boot, C# and .NET.
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {skills.map((group) => (
+              <div key={group.group}>
+                <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-yellow-400">
+                  {group.group}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-white/10 px-4 py-2 text-sm text-foreground"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="mx-auto w-full max-w-7xl px-8 pb-12 pt-24 md:px-12">
+        <SectionHeading text="Contact" />
+        <p className="max-w-3xl text-3xl font-semibold leading-tight md:text-5xl">
+          Have a role, a project or a question? <span className="text-yellow-400">Let's talk.</span>
+        </p>
+
+        <div className="mt-10 flex flex-wrap gap-4">
+          <a
+            href="mailto:muhammadhateem238@gmail.com"
+            className="rounded-full bg-yellow-400 px-8 py-4 font-semibold text-black transition hover:bg-yellow-300"
+          >
+            Email me
+          </a>
+          <a
+            href="/cv.pdf"
+            target="_blank"
+            className="rounded-full border border-white/20 px-8 py-4 font-semibold transition hover:border-yellow-400 hover:text-yellow-400"
+          >
+            Download CV
+          </a>
+          <a
+            href="https://www.linkedin.com/in/muhammad-hateem"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-white/20 px-8 py-4 font-semibold transition hover:border-yellow-400 hover:text-yellow-400"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/Hateem955"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-white/20 px-8 py-4 font-semibold transition hover:border-yellow-400 hover:text-yellow-400"
+          >
+            GitHub
+          </a>
+        </div>
+
+        <footer className="mt-24 flex flex-col gap-2 border-t border-white/10 pt-8 text-sm text-muted-foreground md:flex-row md:justify-between">
+          <p>© 2026 Muhammad Hateem</p>
+          <p>Chester, UK</p>
+        </footer>
       </section>
     </main>
   );
