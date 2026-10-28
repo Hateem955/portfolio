@@ -25,7 +25,7 @@ export default function Home() {
         navLinks={navLinks}
         mainText="Hi, I'm Muhammad Hateem — a final-year Computer Science student and part-time software engineer building backend services with Java, Spring Boot, C# and .NET."
         readMoreLink="#projects"
-        imageSrc="/2.png"
+        imageSrc="/me.png"
         imageAlt="Portrait of Muhammad Hateem"
         overlayText={{ part1: "build.", part2: "ship." }}
         socialLinks={socialLinks}
