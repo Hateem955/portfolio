@@ -3,6 +3,7 @@
 import { Mail } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MinimalistHero } from "@/components/minimalist-hero";
+import { SectionHeading } from "@/components/section-heading";
 
 export default function Home() {
   const navLinks = [
@@ -31,6 +32,9 @@ export default function Home() {
         socialLinks={socialLinks}
         locationText="Chester, UK"
       />
+      <section id="projects" className="mx-auto w-full max-w-7xl px-8 py-24 md:px-12">
+        <SectionHeading text="Projects" />
+      </section>
     </main>
   );
 }
