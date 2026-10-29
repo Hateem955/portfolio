@@ -171,7 +171,7 @@ export const MinimalistHero = ({
             <motion.img
                 src={imageSrc}
                 alt={imageAlt}
-                className="relative z-10 h-auto w-56 max-w-none translate-x-[-  6%] scale-150 object-contain md:absolute md:left-1/2 md:top-1/2 md:h-[88vh] md:w-auto md:-translate-x-[56%] md:-translate-y-[32%] md:scale-100"
+                className="relative z-10 h-auto w-56 max-w-none translate-x-[-6%] translate-y-6 scale-150 object-contain md:absolute md:left-1/2 md:top-1/2 md:h-[88vh] md:w-auto md:-translate-x-[56%] md:-translate-y-[32%] md:scale-100"
 
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
