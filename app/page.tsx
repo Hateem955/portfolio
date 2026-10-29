@@ -20,7 +20,7 @@ const projects = [
     title: "Hospital Appointment System",
     description:
       "REST API with Spring Boot and MySQL supporting four user roles, secured with JWT and role-based access control across 15+ endpoints. Fully containerised with Docker.",
-    href: "https://github.com/Hateem955",
+    href: "https://github.com/Hateem955/hospital-management-system-",
     badge: "2025",
     tags: ["Java", "Spring Boot", "MySQL", "JWT", "Docker"],
     image: "/projects/hospital-system.webp",

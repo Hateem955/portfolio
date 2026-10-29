@@ -146,7 +146,7 @@ export const MinimalistHero = ({
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-yellow-400" />
             </span>
-            Backend Engineer 
+            Software Engineer 
           </p>
           <p className="mx-auto max-w-sm text-xl font-medium leading-snug text-foreground md:mx-0">
             {mainText}
