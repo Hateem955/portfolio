@@ -1,6 +1,8 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { LucideIcon } from 'lucide-react';
+"use client";
+
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 // Define the props interface for type safety and reusability
@@ -50,6 +52,7 @@ export const MinimalistHero = ({
   locationText,
   className,
 }: MinimalistHeroProps) => {
+    const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div
       className={cn(
@@ -59,14 +62,21 @@ export const MinimalistHero = ({
     >
       {/* Header */}
       <header className="z-30 flex w-full max-w-7xl items-center justify-between">
-        <motion.div
+                <motion.a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            setMenuOpen(false);
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-xl font-bold tracking-wider"
+          className="relative z-50 text-xl font-bold tracking-wider transition-colors hover:text-yellow-400"
+          aria-label="Back to top"
         >
           {logoText}
-        </motion.div>
+        </motion.a>
         <div className="hidden items-center space-x-8 md:flex">
           {navLinks.map((link) => (
             <NavLink key={link.label} href={link.href}>
@@ -74,31 +84,79 @@ export const MinimalistHero = ({
             </NavLink>
           ))}
         </div>
-        <motion.button
+              <motion.button
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col space-y-1.5 md:hidden"
-          aria-label="Open menu"
+          onClick={() => setMenuOpen((open) => !open)}
+          className="relative z-50 flex h-8 w-8 items-center justify-center md:hidden"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
         >
-          <span className="block h-0.5 w-6 bg-foreground"></span>
-          <span className="block h-0.5 w-6 bg-foreground"></span>
-          <span className="block h-0.5 w-5 bg-foreground"></span>
+          {menuOpen ? (
+            <X className="h-7 w-7" />
+          ) : (
+            <span className="flex flex-col items-end space-y-1.5">
+              <span className="block h-0.5 w-6 bg-foreground" />
+              <span className="block h-0.5 w-6 bg-foreground" />
+              <span className="block h-0.5 w-5 bg-foreground" />
+            </span>
+          )}
         </motion.button>
+
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.nav
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 bg-background md:hidden"
+            >
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + i * 0.05 }}
+                  className="text-4xl font-extrabold tracking-tight text-foreground transition-colors hover:text-yellow-400"
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </header>
 
       {/* Main Content Area */}
       <div className="relative grid w-full max-w-7xl flex-grow grid-cols-1 items-center md:grid-cols-3">
         {/* Left Text Content */}
+                {/* Left Text Content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
           className="z-20 order-2 md:order-1 text-center md:text-left"
         >
-          <p className="mx-auto max-w-xs text-sm leading-relaxed text-foreground/80 md:mx-0">{mainText}</p>
-          <a href={readMoreLink} className="mt-4 inline-block text-sm font-medium text-foreground underline decoration-from-font">
-            Read More
+          <p className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-yellow-400">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-yellow-400" />
+            </span>
+            Backend Engineer 
+          </p>
+          <p className="mx-auto max-w-sm text-xl font-medium leading-snug text-foreground md:mx-0">
+            {mainText}
+          </p>
+          <a
+            href={readMoreLink}
+            className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground"
+          >
+            See my work
+            <span className="text-yellow-400 transition-transform group-hover:translate-x-1">→</span>
           </a>
         </motion.div>
 
@@ -113,7 +171,7 @@ export const MinimalistHero = ({
             <motion.img
                 src={imageSrc}
                 alt={imageAlt}
-                className="relative z-10 h-auto w-56 max-w-none -translate-x-[14%] scale-150 object-contain md:absolute md:left-1/2 md:top-1/2 md:h-[88vh] md:w-auto md:-translate-x-[60%] md:-translate-y-[32%] md:scale-100"
+                className="relative z-10 h-auto w-56 max-w-none translate-x-[-  6%] scale-150 object-contain md:absolute md:left-1/2 md:top-1/2 md:h-[88vh] md:w-auto md:-translate-x-[56%] md:-translate-y-[32%] md:scale-100"
 
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}

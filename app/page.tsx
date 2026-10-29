@@ -10,26 +10,43 @@ import { ExperienceTimeline } from "@/components/experience-timeline";
 const projects = [
   {
     title: "Uptime Tracker",
-    description:
-      "Automated monitoring for client websites. A background worker pings every site every 30 seconds, logging latency and availability to a relational database.",
-    href: "#",
-    badge: "2026",
+        description:
+      "Automated monitoring for client websites. A background worker pings every site every 30 seconds, logging latency and availability to a relational database so the team can spot latency spikes and downtime early.",
+    badge: "2026 · Client work",
     tags: ["C#", ".NET", "SQL", "Background Services"],
     image: "/projects/uptime-tracker.webp",
   },
   {
     title: "Hospital Appointment System",
     description:
-      "REST API with Spring Boot and MySQL supporting four user roles, secured with JWT and role-based access across 15+ endpoints. Fully containerised with Docker.",
+      "REST API with Spring Boot and MySQL supporting four user roles, secured with JWT and role-based access control across 15+ endpoints. Fully containerised with Docker.",
     href: "https://github.com/Hateem955",
     badge: "2025",
     tags: ["Java", "Spring Boot", "MySQL", "JWT", "Docker"],
-    image: "/projects/hospital-system.webp",},
+    image: "/projects/hospital-system.webp",
+  },
+  {
+    title: "UoC Way Finder",
+    description:
+      "Indoor navigation for University of Chester buildings, built with a friend. I own the backend: each building is modelled as a graph of rooms and corridors, and the API turns the shortest route into step-by-step directions.",
+    badge: "In progress",
+    tags: ["TypeScript", "Node.js", "Graph Algorithms", "React"],
+    href: "https://github.com/Abdussalam-popsy/uoc-wayfinder",
+    image: "/projects/way-finder.webp",
+  },
+  {
+    title: "YourWay",
+    description:
+      "Project manager on a 7-person team through a design sprint to deliver a high-fidelity prototype of a transport booking app, where travellers book journeys with the facilities they need.",
+    badge: "In progress",
+    tags: ["Project Management", "Design Sprint", "Figma", "UX"],
+    image: "/projects/youway.webp",
+  },
   {
     title: "Charity Donation Platform",
-    description:
-      "High-fidelity Figma prototype built with a 4-person team. Shaped by 10+ user interviews and improved usability by 25% through heuristic evaluation and SUS testing.",
-    href: "#",
+        description:
+      "Vice Team Leader for a High-fidelity Figma prototype built with a 4-person team. Shaped by 10+ user interviews and personas, it improved usability by 25% through heuristic evaluation and SUS testing.",
+    href: "https://www.figma.com/proto/mOyCQ7Ones1dmSuwy3JGWX/Untitled?node-id=78-3&p=f&t=r7jjmiYufyr0IQsi-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=53%3A5&show-proto-sidebar=1",
     badge: "2025",
     tags: ["Figma", "UX Research", "Prototyping"],
     image: "/projects/charity-platform.webp",
@@ -38,12 +55,12 @@ const projects = [
 const experience = [
   {
     date: "Apr 2026 — Now",
-    title: "Software Engineer (Part-time)",
+    title: "Software Engineer",
     org: "Titan Webtech · Chester",
     points: [
-      "Joined as a 5-week intern and was kept on as a permanent part-time engineer after delivering internal service tools.",
-      "Built an Uptime Tracker in C# and .NET that pings every client website every 30 seconds, flagging latency spikes and downtime.",
-      "Work directly with clients to turn business requirements into working software through iterative check-ins.",
+      "Joined as a 5-week intern and was kept on as a permanent engineer after delivering internal service tools.",
+      "Build new features for client websites, from first requirements through to release.",
+      "Test websites before launch, finding and fixing bugs across pages, forms and devices.",
     ],
   },
   {
@@ -52,6 +69,8 @@ const experience = [
     org: "Accelerate Me · Manchester",
     points: [
       "Designed and built a working prototype with a team under an 8-hour deadline.",
+      "Split the work across the team and kept the build on track against the clock.",
+      "Presented the finished prototype and the problem it solved at the end of the day.",
     ],
   },
   {
@@ -61,6 +80,7 @@ const experience = [
     points: [
       "Predicted First Class Honours.",
       "Vice Team Leader on a 4-person UX project, designing a charity donation platform prototype in Figma.",
+      "Project Manager for a 7-person team building YouWay, a transport booking app prototype.",
     ],
   },
   {
@@ -68,7 +88,9 @@ const experience = [
     title: "Web Development Certification",
     org: "Aptech",
     points: [
-      "Foundations in web development, which led to studying Computer Science.",
+      "Learned the foundations of web development with HTML, CSS and JavaScript.",
+      "Built my first websites from scratch, from layout to working pages.",
+      "Sparked my interest in how software works behind the scenes, which led to studying Computer Science.",
     ],
   },
 ];
@@ -98,7 +120,7 @@ export default function Home() {
       <MinimalistHero
         logoText="MH."
         navLinks={navLinks}
-        mainText="Hi, I'm Muhammad Hateem — a final-year Computer Science student and part-time software engineer building backend services with Java, Spring Boot, C# and .NET."
+        mainText="I build the parts of software you never see: the APIs, background jobs and databases that keep everything running."
         readMoreLink="#projects"
         imageSrc="/me.webp"
         imageAlt="Portrait of Muhammad Hateem"
@@ -107,7 +129,7 @@ export default function Home() {
         locationText="Chester, UK"
       />
 
-      <section id="projects" className="mx-auto w-full max-w-7xl px-8 py-24 md:px-12">
+      <section id="projects" className="mx-auto w-full max-w-7xl px-8 py-12 md:py-16 md:px-12">
         <SectionHeading text="Projects" />
         <div className="grid gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
@@ -116,12 +138,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="experience" className="mx-auto w-full max-w-7xl px-8 py-24 md:px-12">
+      <section id="experience" className="mx-auto w-full max-w-7xl px-8 py-12 md:py-16 md:px-12">
         <SectionHeading text="Experience" />
         <ExperienceTimeline items={experience} />
       </section>
 
-            <section id="about" className="mx-auto w-full max-w-7xl px-8 py-24 md:px-12">
+            <section id="about" className="mx-auto w-full max-w-7xl px-8 py-12 md:py-16 md:px-12">
         <SectionHeading text="About" />
         <div className="grid gap-16 lg:grid-cols-2">
           <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
@@ -163,7 +185,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="mx-auto w-full max-w-7xl px-8 pb-12 pt-24 md:px-12">
+      <section id="contact" className="mx-auto w-full max-w-7xl px-8 pb-12 pt-12 md:pt-16 md:px-12">
         <SectionHeading text="Contact" />
         <p className="max-w-3xl text-3xl font-semibold leading-tight md:text-5xl">
           Have a role, a project or a question? <span className="text-yellow-400">Let's talk.</span>
@@ -177,7 +199,7 @@ export default function Home() {
             Email me
           </a>
           <a
-            href="/cv.pdf"
+            href="/MUHAMMAD-HATEEM-CV.pdf"
             target="_blank"
             className="rounded-full border border-white/20 px-8 py-4 font-semibold transition hover:border-yellow-400 hover:text-yellow-400"
           >

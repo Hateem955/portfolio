@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 interface ProjectCardProps {
   title: string;
   description: string;
-  href: string;
+  href?: string;
   badge: string;
   tags: string[];
   image?: string;
@@ -15,7 +15,7 @@ const notchCurve = {
 };
 
 export function ProjectCard({ title, description, href, badge, tags, image }: ProjectCardProps) {
-  const isExternal = href.startsWith("http");
+  const isExternal = href?.startsWith("http");
 
   return (
     <a
