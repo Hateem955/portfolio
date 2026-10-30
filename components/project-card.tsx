@@ -30,8 +30,8 @@ export function ProjectCard({ title, description, href, badge, tags, image }: Pr
           <img
             src={image}
             alt={title}
-            className="h-full w-full object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
-          />
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-105 [@media(hover:hover)]:grayscale group-hover:grayscale-0"
+            />
         ) : (
           <div className="flex h-full w-full items-center justify-center text-8xl font-bold text-white/10">
             {title.charAt(0)}
